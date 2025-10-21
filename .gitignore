@@ -1,23 +1,29 @@
-# Xcode
+# Xcode User Data
 DerivedData/
 *.xcuserdatad/
 *.xcworkspace/xcuserdata/
-*.xcodeproj/project.xcworkspace/xcuserdata/
 *.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
 *.xcscmblueprint
 
-# SwiftPM
+# Tuist 자동 생성 산출물
+Tuist/Derived/
+Tuist/Cache/
+*.xcodeproj
+*.xcworkspace
+Project.swift.json
+*.tuist-dump
+
+# Swift Package Manager
 .swiftpm/
 .build/
 Package.resolved
 
-# Tuist
-Tuist/Dependencies/
-Tuist/Derived/
-*.tuist-dump
-Project.swift.json
-
-# OS / Misc
+# OS / IDE / Misc
 .DS_Store
 .idea/
 .vscode/
+
+# User local settings
+*.env.local
+*.secrets
