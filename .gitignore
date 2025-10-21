@@ -1,0 +1,23 @@
+# Xcode
+DerivedData/
+*.xcuserdatad/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcscmblueprint
+
+# SwiftPM
+.swiftpm/
+.build/
+Package.resolved
+
+# Tuist
+Tuist/Dependencies/
+Tuist/Derived/
+*.tuist-dump
+Project.swift.json
+
+# OS / Misc
+.DS_Store
+.idea/
+.vscode/
