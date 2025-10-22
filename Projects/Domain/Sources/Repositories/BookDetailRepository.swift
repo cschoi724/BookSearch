@@ -1,5 +1,5 @@
 //
-//  BookRepository.swift
+//  BookDetailRepository.swift
 //  Domain
 //
 //  Created by 일하는석찬 on 10/21/25.
@@ -8,5 +8,6 @@
 
 import Foundation
 
-public protocol BookRepository {
+public protocol BookDetailRepository {
+    func fetchBookDetail(isbn13: String) async throws -> BookDetail
 }
