@@ -1,5 +1,5 @@
 //
-//  StubSearchRemote.swift
+//  SearchBookRemoteDataSourceStub.swift
 //  Infra
 //
 //  Created by 일하는석찬 on 10/22/25.
