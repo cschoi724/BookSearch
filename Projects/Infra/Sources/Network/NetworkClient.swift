@@ -53,8 +53,12 @@ public final class DefaultNetworkClient: NetworkClient {
             }
             logger?.didReceive(data, response: http)
             return data
+        } catch let urlError as URLError {
+            throw NetworkError.transport(urlError)
+        } catch let netError as NetworkError {
+            throw netError
         } catch {
-            throw NetworkError.transport(error)
+            throw error
         }
     }
 }
