@@ -14,9 +14,9 @@ public protocol SearchBooksUseCase {
 }
 
 public struct DefaultSearchBooksUseCase: SearchBooksUseCase {
-    private let repository: SearchRepository
+    private let repository: SearchBookRepository
 
-    public init(repository: SearchRepository) {
+    public init(repository: SearchBookRepository) {
         self.repository = repository
     }
     @discardableResult

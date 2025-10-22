@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol DetailRepository {
-    func fetchDetail(isbn13: String) async throws -> BookDetail
+public protocol BookDetailRepository {
+    func fetchBookDetail(isbn13: String) async throws -> BookDetail
 }

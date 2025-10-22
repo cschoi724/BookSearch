@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol SearchRepository {
+public protocol SearchBookRepository {
     func search(_ request: SearchRequest) async throws -> SearchResult
 }

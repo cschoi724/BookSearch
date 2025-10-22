@@ -14,14 +14,14 @@ public protocol FetchBookDetailUseCase {
 }
 
 public struct DefaultFetchBookDetailUseCase: FetchBookDetailUseCase {
-    private let repository: DetailRepository
+    private let repository: BookDetailRepository
 
-    public init(repository: DetailRepository) {
+    public init(repository: BookDetailRepository) {
         self.repository = repository
     }
 
     @discardableResult
     public func callAsFunction(isbn13: String) async throws -> BookDetail {
-        try await repository.fetchDetail(isbn13: isbn13)
+        try await repository.fetchBookDetail(isbn13: isbn13)
     }
 }
