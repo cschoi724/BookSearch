@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BookDetail: Equatable {
+public struct BookDetail: Equatable, Sendable {
     public let title: String
     public let subtitle: String?
     public let authors: String?

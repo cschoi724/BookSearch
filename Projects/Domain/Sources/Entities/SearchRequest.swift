@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SearchRequest: Equatable {
+public struct SearchRequest: Equatable, Sendable {
     public let query: String
     public let page: Int
 

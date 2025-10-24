@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SearchResult: Equatable {
+public struct SearchResult: Equatable, Sendable {
     public let pageInfo: PageInfo
     public let books: [BookItem]
 
