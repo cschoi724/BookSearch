@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PDFItem: Equatable {
+public struct PDFItem: Equatable, Sendable {
     public let name: String
     public let url: String
 

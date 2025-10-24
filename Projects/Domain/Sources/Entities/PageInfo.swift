@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PageInfo: Equatable {
+public struct PageInfo: Equatable, Sendable {
     public let page: Int
     public let total: Int
 
