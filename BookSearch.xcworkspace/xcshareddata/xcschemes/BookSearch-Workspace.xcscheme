@@ -70,6 +70,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48F9819B00C6507DA7E7BBC1"
+               BuildableName = "Books_BooksFeature.bundle"
+               BlueprintName = "Books_BooksFeature"
+               ReferencedContainer = "container:Projects/Feature/Books/Books.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0E2BAB47E295A4548E4955F"
                BuildableName = "libCoreKit.a"
                BlueprintName = "CoreKit"
