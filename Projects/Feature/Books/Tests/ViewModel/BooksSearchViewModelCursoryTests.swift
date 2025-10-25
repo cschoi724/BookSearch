@@ -6,13 +6,6 @@
 //  Copyright © 2025 annyeongjelly. All rights reserved.
 //
 
-//
-//  BooksSearchViewModelCursoryTests.swift
-//  BooksFeatureTests
-//
-//  Created by 일하는석찬 on 2025/10/24.
-//
-
 import XCTest
 @testable import BooksFeature
 import Domain
