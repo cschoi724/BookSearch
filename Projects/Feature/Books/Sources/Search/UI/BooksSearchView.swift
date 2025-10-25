@@ -11,6 +11,7 @@ import UIKit
 final class BooksSearchView: UIView {
     let searchBar = UISearchBar(frame: .zero)
     let tableView = UITableView(frame: .zero, style: .plain)
+    let emptyView = EmptyView()
     let refresh = UIRefreshControl()
 
     override init(frame: CGRect) {
@@ -19,6 +20,11 @@ final class BooksSearchView: UIView {
     }
     required init?(coder: NSCoder) { fatalError() }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        emptyView.frame = tableView.bounds
+    }
+    
     private func setup() {
         setupProperties()
         setupHierarchy()
@@ -34,6 +40,12 @@ final class BooksSearchView: UIView {
         tableView.estimatedRowHeight = 72
         tableView.refreshControl = refresh
         tableView.register(BookItemCell.self, forCellReuseIdentifier: BookItemCell.reuseID)
+        
+        emptyView.title = "검색결과가 없습니다"
+        emptyView.isHidden = true
+
+        tableView.backgroundView = emptyView
+        emptyView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
 
     private func setupHierarchy() {
@@ -55,7 +67,14 @@ final class BooksSearchView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+    
         ])
+    }
+    
+    func setEmptyState(isShown: Bool, message: String = "검색결과가 없습니다") {
+        emptyView.title = message
+        emptyView.isHidden = !isShown
+        emptyView.frame = tableView.bounds
     }
 }
 

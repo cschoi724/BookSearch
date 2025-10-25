@@ -20,8 +20,8 @@ public final class BooksSearchViewModel {
         }
     }
 
-    enum Route {
-        case detail(BookItem)
+    public enum Route {
+       case detail(BookItem)
     }
 
     struct State {
