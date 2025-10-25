@@ -10,15 +10,15 @@ import UIKit
 
 final class InfoSectionView: UIView {
 
-    // MARK: - Subviews
     private let titleLabel = UILabel()
-    private let stack = UIStackView()
+    private let vStack = UIStackView()
     private let container = UIStackView()
 
-    // MARK: - Model
-    struct Row { let key: String; let value: String }
+    struct Row {
+        let key: String
+        let value: String
+    }
 
-    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -26,7 +26,6 @@ final class InfoSectionView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
-// MARK: - Setup
 private extension InfoSectionView {
     func setup() {
         setupProperties()
@@ -38,9 +37,9 @@ private extension InfoSectionView {
         titleLabel.text = "정보"
         titleLabel.font = .preferredFont(forTextStyle: .subheadline)
 
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.spacing = 6
+        vStack.axis = .vertical
+        vStack.alignment = .fill
+        vStack.spacing = 6
 
         container.axis = .vertical
         container.alignment = .fill
@@ -49,7 +48,7 @@ private extension InfoSectionView {
 
     func setupHierarchy() {
         container.addArrangedSubview(titleLabel)
-        container.addArrangedSubview(stack)
+        container.addArrangedSubview(vStack)
         addSubview(container)
     }
 
@@ -64,32 +63,31 @@ private extension InfoSectionView {
     }
 }
 
-// MARK: - Configure
 extension InfoSectionView {
     func configure(_ rows: [Row]) {
-        stack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        vStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
         for row in rows {
-            let h = UIStackView()
-            h.axis = .horizontal
-            h.alignment = .firstBaseline
-            h.spacing = 8
+            let hStack = UIStackView()
+            hStack.axis = .horizontal
+            hStack.alignment = .firstBaseline
+            hStack.spacing = 8
 
-            let k = UILabel()
-            k.font = .preferredFont(forTextStyle: .footnote)
-            k.textColor = .secondaryLabel
-            k.setContentHuggingPriority(.required, for: .horizontal)
-            k.text = "\(row.key):"
+            let keyLabel = UILabel()
+            keyLabel.font = .preferredFont(forTextStyle: .footnote)
+            keyLabel.textColor = .secondaryLabel
+            keyLabel.setContentHuggingPriority(.required, for: .horizontal)
+            keyLabel.text = "\(row.key):"
 
-            let v = UILabel()
-            v.font = .preferredFont(forTextStyle: .footnote)
-            v.textColor = .secondaryLabel
-            v.numberOfLines = 0
-            v.text = row.value
+            let valueLabel = UILabel()
+            valueLabel.font = .preferredFont(forTextStyle: .footnote)
+            valueLabel.textColor = .secondaryLabel
+            valueLabel.numberOfLines = 0
+            valueLabel.text = row.value
 
-            h.addArrangedSubview(k)
-            h.addArrangedSubview(v)
-            stack.addArrangedSubview(h)
+            hStack.addArrangedSubview(keyLabel)
+            hStack.addArrangedSubview(valueLabel)
+            vStack.addArrangedSubview(hStack)
         }
 
         isHidden = rows.isEmpty
