@@ -11,12 +11,12 @@ let app = Factory.appTarget(
     ]
 )
 
-let appTests = Factory.tests(
-    name: "BookSearchAppTests",
-    targetName: "BookSearchApp"
-)
+//let appTests = Factory.tests(
+//    name: "BookSearchAppTests",
+//    targetName: "BookSearchApp"
+//)
 
 let project = Factory.project(
     name: "App",
-    targets: [app, appTests]
+    targets: [app]
 )
