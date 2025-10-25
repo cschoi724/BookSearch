@@ -1,6 +1,6 @@
 # BookSearch
 
-도서 검색 및 상세 조회 iOS 애플리케이션 과제 프로젝트  
+도서 검색 및 상세 조회 iOS 애플리케이션 프로젝트  
 (itbook.store API 기반)
 
 ---
