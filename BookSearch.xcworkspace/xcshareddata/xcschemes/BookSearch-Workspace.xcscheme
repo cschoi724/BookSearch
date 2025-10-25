@@ -28,20 +28,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F480386EB62221B67A66152"
-               BuildableName = "BookSearchAppTests.xctest"
-               BlueprintName = "BookSearchAppTests"
-               ReferencedContainer = "container:Projects/App/App.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "134211242F56C3035B2373E5"
                BuildableName = "libBooksFeature.a"
                BlueprintName = "BooksFeature"
@@ -87,20 +73,6 @@
                BlueprintIdentifier = "C0E2BAB47E295A4548E4955F"
                BuildableName = "libCoreKit.a"
                BlueprintName = "CoreKit"
-               ReferencedContainer = "container:Projects/Shared/CoreKit/CoreKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C5257E482214943C4AF6C540"
-               BuildableName = "CoreKitTests.xctest"
-               BlueprintName = "CoreKitTests"
                ReferencedContainer = "container:Projects/Shared/CoreKit/CoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -173,32 +145,10 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F480386EB62221B67A66152"
-               BuildableName = "BookSearchAppTests.xctest"
-               BlueprintName = "BookSearchAppTests"
-               ReferencedContainer = "container:Projects/App/App.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2F4A0EF4B67CC440604C9EC8"
                BuildableName = "BooksFeatureTests.xctest"
                BlueprintName = "BooksFeatureTests"
                ReferencedContainer = "container:Projects/Feature/Books/Books.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C5257E482214943C4AF6C540"
-               BuildableName = "CoreKitTests.xctest"
-               BlueprintName = "CoreKitTests"
-               ReferencedContainer = "container:Projects/Shared/CoreKit/CoreKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

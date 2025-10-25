@@ -7,12 +7,7 @@ let corekit = Factory.staticLib(
     dependencies: []
 )
 
-let tests = Factory.tests(
-    name: "CoreKitTests",
-    targetName: "CoreKit"
-)
-
 let project = Factory.project(
     name: "CoreKit",
-    targets: [corekit, tests]
+    targets: [corekit]
 )
