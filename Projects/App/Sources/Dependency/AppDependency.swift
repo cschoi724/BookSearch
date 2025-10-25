@@ -16,18 +16,10 @@ import BooksFeature
 final class AppDependency {
     static let shared = AppDependency()
 
-    private let container = DIContainer()
+    let container = DIContainer()
 
     private init() {
         register()
-    }
-
-    func makeBooksSearchRoot() -> UIViewController {
-        let searchBooksUseCase = container.resolve(SearchBooksUseCase.self)
-        let viewModel = BooksSearchViewModel(
-            dependency: .init(searchBooksUseCase: searchBooksUseCase)
-        )
-        return BooksSearchViewController(viewModel: viewModel)
     }
 }
 
@@ -37,6 +29,8 @@ private extension AppDependency {
             .register(NetworkClient.self) { _ in
                 DefaultNetworkClient()
             }
+        
+        container
             .register(SearchBookRemoteDataSource.self) { r in
                 SearchBookRemoteDataSourceImpl(
                     client: r.resolve(NetworkClient.self)
@@ -51,7 +45,23 @@ private extension AppDependency {
                 let repo = r.resolve(SearchBookRepository.self)
                 return DefaultSearchBooksUseCase(repository: repo)
             }
-        
+            
+        container
+            .register(BookDetailRemoteDataSource.self) { r in
+                BookDetailRemoteDataSourceImpl(
+                    client: r.resolve(NetworkClient.self)
+                )
+            }
+            .register(BookDetailRepository.self) { r in
+                BookDetailRepositoryImpl(
+                    remote: r.resolve(BookDetailRemoteDataSource.self)
+                )
+            }
+            .register(FetchBookDetailUseCase.self) { r in
+                let repo = r.resolve(BookDetailRepository.self)
+                return DefaultFetchBookDetailUseCase(repository: repo)
+            }
+
         
         container
             .register(ImageCache.self) { r in

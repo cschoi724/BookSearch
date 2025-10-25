@@ -12,6 +12,7 @@ import BooksFeature
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var root: Router?
 
     func scene(
         _ scene: UIScene,
@@ -21,10 +22,19 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         let window = UIWindow(windowScene: windowScene)
 
-        let rootVC = AppDependency.shared.makeBooksSearchRoot()
-        let nav = UINavigationController(rootViewController: rootVC)
+        let nav = UINavigationController()
         window.rootViewController = nav
         window.makeKeyAndVisible()
         self.window = window
+
+        let navigator = NavigationControllerNavigator(nav: nav)
+        let appDI = AppDependency.shared
+        let coordinator = SearchCoordinator(
+            navigator: navigator,
+            di: appDI,
+            navController: nav
+        )
+        self.root = coordinator
+        coordinator.start()
     }
 }
