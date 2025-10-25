@@ -10,10 +10,14 @@ import Foundation
 import Domain
 
 @MainActor
-final class BooksSearchViewModel {
+public final class BooksSearchViewModel {
 
-    struct Dependency {
-        let searchBooksUseCase: SearchBooksUseCase
+    public struct Dependency {
+        public let searchBooksUseCase: SearchBooksUseCase
+        
+        public init(searchBooksUseCase: SearchBooksUseCase) {
+            self.searchBooksUseCase = searchBooksUseCase
+        }
     }
 
     enum Route {
@@ -43,7 +47,7 @@ final class BooksSearchViewModel {
     private var loadTask: Task<Void, Never>?
     private var requestToken = 0
     
-    init(dependency: Dependency) {
+    public init(dependency: Dependency) {
         self.dependency = dependency
     }
 
