@@ -12,14 +12,17 @@ import Domain
 import CoreKit
 
 public final class BooksSearchViewController: UIViewController {
+    private let router: SearchRouter
     private let viewModel: BooksSearchViewModel
     private let rootView = BooksSearchView()
     private var bag = Set<AnyCancellable>()
 
-    public init(viewModel: BooksSearchViewModel) {
+    public init(viewModel: BooksSearchViewModel, router: SearchRouter) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
+    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -79,6 +82,21 @@ private extension BooksSearchViewController {
             .store(in: &bag)
         
         state
+            .map { s in
+                let tried = !s.query.isEmpty
+                let noResult = s.items.isEmpty
+                return tried && noResult && !s.isLoading
+            }
+            .removeDuplicates()
+            .sink { [weak self] shouldShowEmpty in
+                self?.rootView.setEmptyState(
+                    isShown: shouldShowEmpty,
+                    message: "검색결과가 없습니다"
+                )
+            }
+            .store(in: &bag)
+        
+        state
             .compactMap(\.route)
             .sink { [weak self] route in
                 guard let self else { return }
@@ -91,7 +109,7 @@ private extension BooksSearchViewController {
             .compactMap(\.errorMessage)
             .removeDuplicates()
             .sink { msg in
-                print("Error:", msg)
+                print("Search Error:", msg)
             }
             .store(in: &bag)
     }
@@ -110,7 +128,7 @@ private extension BooksSearchViewController {
     func handle(route: BooksSearchViewModel.Route) {
         switch route {
         case .detail(let item):
-            print("ISBN13: \(item.isbn13)\n\(item.url)")
+            self.router.go(.detail(item: item))
         }
     }
 }
